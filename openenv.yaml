@@ -1,0 +1,37 @@
+name: debugml
+description: >
+  An environment where an agent improves a machine learning pipeline
+  by applying transformations like scaling, feature adjustment, and split correction.
+
+entry_point: env.environments:DebugMLEnv
+
+observation_space:
+  type: object
+  properties:
+    accuracy:
+      type: float
+    precision:
+      type: float
+    recall:
+      type: float
+    scaling:
+      type: boolean
+    feature_count:
+      type: integer
+    test_split:
+      type: float
+    model_type:
+      type: string
+
+action_space:
+  type: object
+  properties:
+    type:
+      type: string
+      enum:
+        - add_scaling
+        - fix_split
+        - add_feature
+        - remove_feature
+
+reward_range: [0.0, 1.0]
