@@ -223,7 +223,7 @@ class DebugMLEnv:
             "step_count": self.step_count,
             "model_type": self.cur_state.model_type,
             "score": compute_score(self.cur_state),
-            "task_score": self.grade_task(self.task_name, self.step_count) if self.task_name else None
+            "task_score": self.grade_task(self.task_name, self.step_count) 
         }
         #print(f"DEBUG → task={self.task_name}, score={score}, steps={self.step_count}, done={done}")
         return self.cur_state, reward, done, info
