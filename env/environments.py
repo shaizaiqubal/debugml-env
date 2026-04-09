@@ -234,27 +234,26 @@ class DebugMLEnv:
     
     def grade_task(self, task_name, steps):
         if self.cur_state is None:
-            return 0.0
+            return 0.01
         
         score = compute_score(self.cur_state)
 
         if task_name == "fix_basics":
-            return min(score / 0.75, 1.0)
+            return max(0.01, min(score / 0.75, 0.99))
 
         elif task_name == "optimize_features":
             if 3 <= self.cur_state.feature_count <= 5:
                 score += 0.05
-            return min(score / 0.85, 1.0)
-
+            return max(0.01, min(score / 0.85, 0.99))
         elif task_name == "full_pipeline_optimization":
             step_penalty = 0.01 * steps
             final_score = score - step_penalty
-            return max(0.0, min(final_score, 1.0))
+            return max(0.01, min(final_score, 0.99))
         
         elif task_name == "stability_optimization":
             # penalize unnecessary changes (too many steps)
             step_penalty = 0.015 * steps
             final_score = score - step_penalty
-            return max(0.0, min(final_score, 1.0))
+            return max(0.01, min(final_score, 0.99))
 
-        return 0.0
+        return 0.01

@@ -124,4 +124,4 @@ success = info["task_score"] >= 0.8 if "task_score" in info else False
 
 rewards_str = ",".join(f"{r:.2f}" for r in rewards)
 
-print(f"[END] success={str(success).lower()} steps={len(rewards)} rewards={rewards_str} score={info.get('task_score', 0.0)}")
+print(f"[END] success={str(success).lower()} steps={len(rewards)} rewards={rewards_str} score={info.get('task_score', 0.01)}")
