@@ -19,7 +19,18 @@ class DebugMLEnv:
         self.last_action = None
         self.task_name = None
 
-    def reset(self, task_name=None):
+    #def reset(self, task_name=None):
+    def reset(self, task_name=None, **kwargs):
+    
+        #  handle different possible keys
+        if task_name is None:
+            task_name = kwargs.get("task") or kwargs.get("task_name")
+
+        #  fallback 
+        if task_name is None:
+            task_name = "fix_basics"
+
+        self.task_name = task_name
 
         self.step_count = 0
         self.last_action = None
@@ -84,6 +95,9 @@ class DebugMLEnv:
         return self.cur_state
     
     def step(self, action):
+
+        if not self.task_name:
+            self.task_name = "fix_basics"
         
         if self.cur_state is None:
             raise RuntimeError("Call reset() before step()")
