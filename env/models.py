@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Optional
 
 class Observation(BaseModel):
     accuracy: float
@@ -11,3 +12,6 @@ class Observation(BaseModel):
 
 class Action(BaseModel):
     type: str
+
+class ResetRequest(BaseModel):
+    task_name: Optional[str] = None

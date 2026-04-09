@@ -1,14 +1,16 @@
 from fastapi import FastAPI
 from env.environments import DebugMLEnv
-from env.models import Action
+from env.models import Action, ResetRequest
+from typing import Optional
 
 app = FastAPI()
 
 env = DebugMLEnv()
 
 @app.post('/reset')
-def reset(): 
-    obs = env.reset()
+def reset(request: Optional[ResetRequest] = None):
+    task_name = request.task_name if request else None
+    obs = env.reset(task_name)
     return obs
 
 @app.post('/step')
