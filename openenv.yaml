@@ -35,3 +35,24 @@ action_space:
         - remove_feature
 
 reward_range: [0.0, 1.0]
+
+tasks:
+  - name: fix_basics
+    description: Fix a pipeline with missing scaling and a bad train/test split
+    difficulty: easy
+    grader: grade_task
+
+  - name: optimize_features
+    description: Tune feature count when scaling is already applied
+    difficulty: medium
+    grader: grade_task
+
+  - name: full_pipeline_optimization
+    description: Fix everything from a random starting state
+    difficulty: hard
+    grader: grade_task
+
+  - name: stability_optimization
+    description: Maintain high accuracy with minimal unnecessary steps
+    difficulty: hard
+    grader: grade_task
