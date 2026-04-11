@@ -107,3 +107,16 @@ docker run -e HF_TOKEN=your_token -p 7860:7860 debugml
 ```
 
 This environment is designed as a foundation for real-world AutoML systems, where simulated scoring can be replaced with actual model training and evaluation.
+
+<!-- ## GitHub to Space Sync
+
+This repo now includes a GitHub Actions workflow at `.github/workflows/sync-space.yml` that mirrors `main` to the Hugging Face Space `shae2977/debugml-env`.
+
+To finish the connection:
+
+1. In GitHub, open `shaizaiqubal/debugml-env`.
+2. Go to `Settings` -> `Secrets and variables` -> `Actions`.
+3. Add a repository secret named `HF_TOKEN`.
+4. Set its value to a Hugging Face token with write access to `spaces/shae2977/debugml-env`.
+
+After that, a normal `git push origin main` updates GitHub first, and the workflow pushes the same commit to the Space automatically. -->
