@@ -34,7 +34,7 @@ action_space:
         - add_feature
         - remove_feature
 
-reward_range: [0.0, 1.0]
+reward_range: [0.01, 0.99]
 
 tasks:
   - name: fix_basics

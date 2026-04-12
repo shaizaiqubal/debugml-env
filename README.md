@@ -1,3 +1,13 @@
+---
+title: DebugML Env
+emoji: "🛠️"
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # DebugML — OpenEnv Environment
 
 An OpenEnv-compatible reinforcement learning environment that simulates intelligent debugging and optimization of machine learning pipelines.
@@ -74,7 +84,7 @@ The environment uses two scoring systems:
 git clone https://github.com/shaizaiqubal/debugml-env
 cd debugml-env
 pip install -r requirements.txt
-uvicorn app:app --host 0.0.0.0 --port 7860
+uvicorn server.app:app --host 0.0.0.0 --port 7860
 ```
 Requires Python 3.10+
 
