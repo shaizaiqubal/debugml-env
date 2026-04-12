@@ -2,13 +2,16 @@ from env.models import Observation
 import random
 #random.seed(42)
 
+def clamp_score(score):
+    return max(0.01, min(0.99, score))
+
 def compute_score(state):
-    return round(
+    return clamp_score(round(
         0.5 * state.accuracy +
         0.25 * state.precision +
         0.25 * state.recall,
         2
-    )
+    ))
 
 class DebugMLEnv:
 
