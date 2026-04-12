@@ -187,8 +187,9 @@ def run_task(task_name: str) -> float:
 
 def main():
     tasks = ["fix_basics", "optimize_features", "full_pipeline_optimization", "stability_optimization"]
-    task_name = random.choice(tasks)
-    run_task(task_name)
+    for task_name in tasks:
+        run_task(task_name)
+        print("", flush=True)
 
 
 if __name__ == "__main__":
